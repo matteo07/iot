@@ -4,15 +4,30 @@
   font-family: 'Cabin', sans-serif;
 }
 
-nav, h1 {
+body {
+  padding-top: 24px;
+  background-color: #ebfdffb8;
+}
+
+nav, h1, h2 {
   text-align: center;
 }
 
 nav a{
   text-decoration: none;
   padding: 4px;
+  color: #EEC643;
+}
+
+nav a:hover, nav a:active, nav a:active{
+  color: #C1A136;
 }
 
 h1{
   font-size: 2.4rem;
+  color: #7B287D;
+}
+
+h2{
+  color: #00AEC1;
 }
