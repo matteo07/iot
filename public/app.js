@@ -17,7 +17,7 @@ angular.module('app', ['ngRoute'])
     function config($locationProvider, $routeProvider) {
 			$routeProvider.
 			when('/', {
-				template: '<h3>select component</h3>'
+				template: ''
 			}).when('/sensor/:sensorID', {
 				template: '<sensor></sensor>'
 			}).

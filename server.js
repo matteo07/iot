@@ -1,11 +1,10 @@
 var express = require("express");
 var app = express();
 
-// set the static files location
-// /public/img will be /img for users
+// set the static files location ==========================
 app.use(express.static('./public'));
 
-// router ======================================================================
+// router =================================================
 require('./router.js')(app);
 
 var port = process.env.PORT || 5000;

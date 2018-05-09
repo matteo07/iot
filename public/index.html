@@ -8,16 +8,17 @@
   <!--ngRoute module-->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.9/angular-route.min.js"></script>
   <script src="app.js"></script>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
   <h1>{{title}}</h1>
-  <ul>
-    <li><a href="#!/sensor/1">Sensore 1</a></li>
-    <li><a href="#!/sensor/2">Sensore 2</a></li>
-    <li><a href="#!/sensor/3">Sensore 3</a></li>
-    <li><a href="#!/sensor/4">Sensore 4</a></li>
-    <li><a href="#!/sensor/5">Sensore 5</a></li>
-  </ul>
+  <nav>
+    <a href="#!/sensor/1">Sensore 1</a>
+    <a href="#!/sensor/2">Sensore 2</a>
+    <a href="#!/sensor/3">Sensore 3</a>
+    <a href="#!/sensor/4">Sensore 4</a>
+    <a href="#!/sensor/5">Sensore 5</a>
+  </nav>
   <div ng-view></div>
 </body>
 </html>
