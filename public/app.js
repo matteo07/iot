@@ -4,6 +4,7 @@ angular.module('app', ['ngRoute'])
     $scope.title = "Sensors Manager";
   })
 
+  //SENSOR COMPONENT
   .component('sensor',{
     templateUrl: 'public/sensor.html',
     controller: function($scope, $routeParams){
