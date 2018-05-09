@@ -1,8 +1,23 @@
-<html>
+<html ng-app="IotApp" ng-controller="IotController">
 <head>
-  <title>Sensors Manager</title>
+  <title>{{title}}</title>
+  <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--AngularJS-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.9/angular.min.js"></script>
+  <!--ngRoute module-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.9/angular-route.min.js"></script>
+  <script src="iot_controller.js"></script>
 </head>
 <body>
-  <h1>Sensors Manager<h1>
+  <h1>{{title}}</h1>
+  <ul>
+    <li><a href="#!/s1">Sensore 1</a></li>
+    <li><a href="#!/s2">Sensore 2</a></li>
+    <li><a href="#!/s3">Sensore 3</a></li>
+    <li><a href="#!/s4">Sensore 4</a></li>
+    <li><a href="#!/s5">Sensore 5</a></li>
+  <ul>
+  <div ng-view></div>
 </body>
 </html>

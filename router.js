@@ -4,10 +4,9 @@ module.exports = function (app) {
      res.sendfile('index.html')
   });
 
-   app.post("/user/add", function(req, res) {
-     /* some server side logic */
-     res.send("OK");
-   });
+  app.post("/user/add", function(req, res) {
+    res.send("OK");
+  });
 
   /* serves all the static files */
   app.get(/^(.+)$/, function(req, res){
