@@ -1,0 +1,16 @@
+{
+  "name": "iot",
+  "version": "1.0.0",
+  "description": "Basic HTTP server with Express. Router separated serves static files.",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.16.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Matteo Franceschi De Marchi",
+  "license": "ISC"
+}
