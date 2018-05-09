@@ -1,11 +1,11 @@
-** What is?
+# What is?
 
 Basic HTTP server with Express. Router separated serves static files.
 
-** Installation
+# Installation
 
 npm install express
 
-** Run
+# Run
 
 node server.js
