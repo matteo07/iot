@@ -3,6 +3,7 @@ angular.module('app', ['ngRoute'])
     $scope.title = "Sensors Manager";
     $scope.greenLight = true;
     $scope.floorOpened = 1;
+    //Callback from Socket messages
     var socket = io();
     socket.on('greenLight', function(msg){
       $scope.greenLight = msg;
@@ -23,7 +24,6 @@ angular.module('app', ['ngRoute'])
        value1 : true
       };
       $scope.post = function() {
-        console.log("posting  " + "sensor/" + $scope.sensorID + "/" + $scope.checkboxModel.value1);
         $http.post("sensor/" + $scope.sensorID + "/" + $scope.checkboxModel.value1);
       }
     }
