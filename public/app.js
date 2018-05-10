@@ -1,5 +1,4 @@
 angular.module('app', ['ngRoute'])
-
   .controller('AppController', function($scope, $route) {
     $scope.title = "Sensors Manager";
     $scope.greenLight = true;
@@ -22,17 +21,7 @@ angular.module('app', ['ngRoute'])
       $scope.sensorID = $routeParams.sensorID;
       $scope.checkboxModel = {
        value1 : true
-     };
-
-      $scope.init = function () {
-        /*$http.get("sensor/" + $routeParams.sensorID,{})
-          .then(function(response){
-            console.log("sensor/" + $routeParams.sensorID + ": " +  response.data);
-            $scope.checkboxModel.value1 = response.data;
-            console.log($scope.checkboxModel.value1);
-          });*/
-      }
-
+      };
       $scope.post = function() {
         console.log("posting  " + "sensor/" + $scope.sensorID + "/" + $scope.checkboxModel.value1);
         $http.post("sensor/" + $scope.sensorID + "/" + $scope.checkboxModel.value1);
@@ -50,17 +39,4 @@ angular.module('app', ['ngRoute'])
 			}).
 			otherwise('/');
     }
-  ])
-
-  .factory('socket', ['$rootScope', function($rootScope) {
-  var socket = io.connect();
-
-  return {
-    on: function(eventName, callback){
-      socket.on(eventName, callback);
-    },
-    emit: function(eventName, data) {
-      socket.emit(eventName, data);
-    }
-  };
-}]);
+  ]);

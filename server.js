@@ -10,7 +10,6 @@ app.use(express.static('./public'));
 require('./router.js')(app,io);
 
 var port = process.env.PORT || 5000;
-//app.listen(port, function() {
 http.listen(port, function(){
   console.log("Sensors server listening on port " + port);
 });
