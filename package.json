@@ -4,7 +4,8 @@
   "description": "Basic HTTP server with Express. Router separated serves static files.",
   "main": "server.js",
   "dependencies": {
-    "express": "^4.16.3"
+    "express": "^4.16.3",
+    "socket.io": "^2.1.0"
   },
   "devDependencies": {},
   "scripts": {

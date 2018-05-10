@@ -7,18 +7,24 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.9/angular.min.js"></script>
   <!--ngRoute module-->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.9/angular-route.min.js"></script>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+
+  </script>
   <script src="app.js"></script>
   <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
   <h1>{{title}}</h1>
   <nav>
-    <a href="#!/sensor/1">Sensore 1</a>
-    <a href="#!/sensor/2">Sensore 2</a>
-    <a href="#!/sensor/3">Sensore 3</a>
-    <a href="#!/sensor/4">Sensore 4</a>
-    <a href="#!/sensor/5">Sensore 5</a>
+    <a href="#!/sensor/1">Sensor 1</a>
+    <a href="#!/sensor/2">Sensor 2</a>
+    <a href="#!/sensor/3">Sensor 3</a>
+    <a href="#!/sensor/4">Sensor 4</a>
+    <a href="#!/sensor/5">Sensor 5</a>
   </nav>
   <div ng-view></div>
+  <h5>{{ greenLight }}</h5>
 </body>
 </html>

@@ -31,3 +31,42 @@ h1{
 h2{
   color: #00AEC1;
 }
+
+.sensor {
+  padding: 16px;
+  border: solid #00AEC1;
+  border-radius: 8px;
+  max-width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 32px;
+  padding-top: 0;
+}
+
+.sensor button {
+  margin-top: 22px;
+  font-size: 1rem;
+  background-color: transparent;
+  color: #7B287D;
+  border: solid 2px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.sensor button:hover {
+  background-color: #00AEC1;
+}
+
+.sensor input {
+  font-size: 8rem;
+}
+
+.sensor input:checked {
+  color: #00AEC1;
+}
+
+.sensor input, .sensor button {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
