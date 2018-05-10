@@ -1,4 +1,4 @@
-module.exports = function (app) {
+module.exports = function (app, io) {
   var sensorsMap = {"1": false, "2": true, "3": "a", "4": "b", "5": "c" }
   /* serves main page */
   app.get("/", function(req, res) {
@@ -19,6 +19,16 @@ module.exports = function (app) {
   });
 
   app.post("/user/add", function(req, res) {
+    res.send("OK");
+  });
+
+  app.post("/greenlight/:status", function(req, res){
+    io.emit('greenLight', req.params.status);
+    res.send("OK");
+  });
+
+  app.post("/flooropened/:status", function(req, res){
+    io.emit('floorOpened', req.params.status);
     res.send("OK");
   });
 

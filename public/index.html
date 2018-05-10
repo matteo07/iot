@@ -7,9 +7,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.9/angular.min.js"></script>
   <!--ngRoute module-->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.9/angular-route.min.js"></script>
-
-  <script src="/socket.io/socket.io.js"></script>
-  <script>
+  <!-- Socket IO -->
+  <script src="/socket.io/socket.io.js"></script><script>
 
   </script>
   <script src="app.js"></script>
@@ -25,6 +24,7 @@
     <a href="#!/sensor/5">Sensor 5</a>
   </nav>
   <div ng-view></div>
-  <h5>{{ greenLight }}</h5>
+  <h5>Traffic light green: {{ greenLight }}</h5>
+  <h5>Floor opened: {{ floorOpened }}</h5>
 </body>
 </html>
