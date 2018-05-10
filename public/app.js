@@ -2,11 +2,15 @@ angular.module('app', ['ngRoute'])
 
   .controller('AppController', function($scope, $route) {
     $scope.title = "Sensors Manager";
-    $scope.greenLight = "";
+    $scope.greenLight = true;
+    $scope.floorOpened = 1;
     var socket = io();
     socket.on('greenLight', function(msg){
-      console.log(msg)
       $scope.greenLight = msg;
+      $route.reload();
+    });
+    socket.on('floorOpened', function(msg){
+      $scope.floorOpened = msg;
       $route.reload();
     });
   })
