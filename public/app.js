@@ -2,8 +2,8 @@ angular.module('app', ['ngRoute'])
   //FRONT-END ROUTER
   .config(['$locationProvider', '$routeProvider',
     function config($locationProvider, $routeProvider) {
-      $routeProvider.
-      when('/', {
+      $routeProvider
+        .when('/', {
         template: '<h2>Select action</h2>'
       }).when('/enter', {
         template: '<enter></enter>'
@@ -11,8 +11,7 @@ angular.module('app', ['ngRoute'])
         template: '<exit></exit>'
       }).when('/output', {
         template: '<output></output>'
-      }).
-      otherwise('/');
+      }).otherwise('/');
     }
   ])
   //ENTER COMPONENT

@@ -1,5 +1,5 @@
 module.exports = function (app, io, mqttClient) {
-  //GET AND POST OF INPUT SENSORS
+  //POST CAR ENTRY OR EXIT
   app.post("/entry/:number", function(req, res) {
     console.log("car entering: " + req.params.number);
     mqttClient.publish('input', 'enter');
@@ -12,16 +12,16 @@ module.exports = function (app, io, mqttClient) {
   });
   //POST OF OUTPUT SENSORS, INVOKE SOCKET TO UPDATE FRON-END
   app.post("/greenlight/:status", function(req, res){
-    console.log('posted greenLight status: ' + req.params.status)
+    //console.log('posted greenLight status: ' + req.params.status)
     io.emit('greenLight', req.params.status);
     res.send("OK");
   });
   app.post("/flooropened/:status", function(req, res){
-    console.log('posted floorOpened: ' + req.params.status);
+    //console.log('posted floorOpened: ' + req.params.status);
     io.emit('floorOpened', req.params.status);
     res.send("OK");
   });
-  /* serves Sensors Manager */
+  /* serves home */
   app.get("/", function(req, res) {
      res.sendfile('index.html')
   });
