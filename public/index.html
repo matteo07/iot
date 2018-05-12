@@ -9,21 +9,18 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.9/angular-route.min.js"></script>
   <!-- Socket IO -->
   <script src="/socket.io/socket.io.js"></script>
-  
+
   <script src="app.js"></script>
   <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
   <h1>{{title}}</h1>
   <nav>
-    <a href="#!/sensor/1">Sensor 1</a>
-    <a href="#!/sensor/2">Sensor 2</a>
-    <a href="#!/sensor/3">Sensor 3</a>
-    <a href="#!/sensor/4">Sensor 4</a>
-    <a href="#!/sensor/5">Sensor 5</a>
+    <a href="#!/enter">Enter</a>
+    <a href="#!/exit">Exit</a>
+    <a href="#!/output">Output</a>
   </nav>
   <div ng-view></div>
-  <h5>Traffic light green: {{ greenLight }}</h5>
-  <h5>Floor opened: {{ floorOpened }}</h5>
+  
 </body>
 </html>

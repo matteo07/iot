@@ -40,7 +40,7 @@ h2{
   margin-left: auto;
   margin-right: auto;
   margin-top: 32px;
-  padding-top: 0;
+  padding-top: 32px;
 }
 
 .sensor button {
@@ -55,14 +55,6 @@ h2{
 
 .sensor button:hover {
   background-color: #00AEC1;
-}
-
-.sensor input {
-  font-size: 8rem;
-}
-
-.sensor input:checked {
-  color: #00AEC1;
 }
 
 .sensor input, .sensor button {

@@ -1,12 +1,12 @@
 module.exports = function (app, io) {
-  var sensorsMap = {"1": false, "2": true, "3": "a", "4": "b", "5": "c" }
   //GET AND POST OF INPUT SENSORS
-  app.get("/sensor/:sensorID", function(req, res) {
-     res.send(sensorsMap[req.params.sensorID]);
+  app.post("/entry/:number", function(req, res) {
+    console.log("car entering: " + req.params.number)
+     res.send(req.params.number);
   });
-  app.post("/sensor/:id/:value", function(req, res) {
-    sensorsMap[req.params.id] = req.params.value;
-    res.send(sensorsMap[req.params.id]);
+  app.post("/exit/:number", function(req, res) {
+    console.log("car exiting: " + req.params.number)
+    res.send(req.params.number);
   });
   //POST OF OUTPUT SENSORS, INVOKE SOCKET TO UPDATE FRON-END
   app.post("/greenlight/:status", function(req, res){

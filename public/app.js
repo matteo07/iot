@@ -14,17 +14,23 @@ angular.module('app', ['ngRoute'])
       $route.reload();
     });
   })
-  //SENSOR COMPONENT
-  .component('sensor',{
-    templateUrl: 'public/sensor.html',
-    controller: function($scope, $http, $routeParams){
-      $scope.title = "Sensor: ";
-      $scope.sensorID = $routeParams.sensorID;
-      $scope.checkboxModel = {
-       value1 : true
-      };
-      $scope.post = function() {
-        $http.post("sensor/" + $scope.sensorID + "/" + $scope.checkboxModel.value1);
+  //ENTER COMPONENT
+  .component('enter',{
+    templateUrl: 'public/enter.html',
+    controller: function($scope, $http){
+      $scope.inputNumber = 1;
+      $scope.entry = function() {
+        $http.post("entry/" + $scope.inputNumber);
+      }
+    }
+  })
+  //EXIT COMPONENT
+  .component('exit',{
+    templateUrl: 'public/exit.html',
+    controller: function($scope, $http){
+      $scope.inputNumber = 1;
+      $scope.exit = function() {
+        $http.post("exit/" + $scope.inputNumber);
       }
     }
   })
@@ -34,8 +40,12 @@ angular.module('app', ['ngRoute'])
 			$routeProvider.
 			when('/', {
 				template: '<h2>Seleziona un sensore</h2>'
-			}).when('/sensor/:sensorID', {
-				template: '<sensor></sensor>'
+			}).when('/enter', {
+				template: '<enter></enter>'
+			}).when('/exit', {
+				template: '<exit></exit>'
+			}).when('/output', {
+				templateUrl: 'output.html'
 			}).
 			otherwise('/');
     }
