@@ -1,19 +1,20 @@
 angular.module('app', ['ngRoute'])
-  .controller('AppController', function($scope, $route) {
-    $scope.title = "Sensors Manager";
-    $scope.greenLight = true;
-    $scope.floorOpened = 1;
-    //Callback from Socket messages
-    var socket = io();
-    socket.on('greenLight', function(msg){
-      $scope.greenLight = msg;
-      $route.reload();
-    });
-    socket.on('floorOpened', function(msg){
-      $scope.floorOpened = msg;
-      $route.reload();
-    });
-  })
+  //FRONT-END ROUTER
+  .config(['$locationProvider', '$routeProvider',
+    function config($locationProvider, $routeProvider) {
+      $routeProvider.
+      when('/', {
+        template: '<h2>Select action</h2>'
+      }).when('/enter', {
+        template: '<enter></enter>'
+      }).when('/exit', {
+        template: '<exit></exit>'
+      }).when('/output', {
+        template: '<output></output>'
+      }).
+      otherwise('/');
+    }
+  ])
   //ENTER COMPONENT
   .component('enter',{
     templateUrl: 'public/enter.html',
@@ -34,19 +35,22 @@ angular.module('app', ['ngRoute'])
       }
     }
   })
-  //FRONT-END ROUTER
-  .config(['$locationProvider', '$routeProvider',
-    function config($locationProvider, $routeProvider) {
-			$routeProvider.
-			when('/', {
-				template: '<h2>Seleziona un sensore</h2>'
-			}).when('/enter', {
-				template: '<enter></enter>'
-			}).when('/exit', {
-				template: '<exit></exit>'
-			}).when('/output', {
-				templateUrl: 'output.html'
-			}).
-			otherwise('/');
+  //OUTPUT COMPONENT
+  .component('output',{
+    templateUrl: 'public/output.html',
+    controller: function($scope, $route) {
+      $scope.title = "Sensors Manager";
+      $scope.greenLight = true;
+      $scope.floorOpened = 0;
+      //Callback from Socket messages
+      var socket = io();
+      socket.on('greenLight', function(msg){
+        $scope.greenLight = msg;
+        $route.reload();
+      });
+      socket.on('floorOpened', function(msg){
+        $scope.floorOpened = msg;
+        $route.reload();
+      });
     }
-  ]);
+  });
