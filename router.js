@@ -1,11 +1,13 @@
-module.exports = function (app, io) {
+module.exports = function (app, io, mqttClient) {
   //GET AND POST OF INPUT SENSORS
   app.post("/entry/:number", function(req, res) {
-    console.log("car entering: " + req.params.number)
-     res.send(req.params.number);
+    console.log("car entering: " + req.params.number);
+    mqttClient.publish('input', 'enter');
+    res.send(req.params.number);
   });
   app.post("/exit/:number", function(req, res) {
-    console.log("car exiting: " + req.params.number)
+    console.log("car exiting: " + req.params.number);
+    mqttClient.publish('input', 'exit');
     res.send(req.params.number);
   });
   //POST OF OUTPUT SENSORS, INVOKE SOCKET TO UPDATE FRON-END
