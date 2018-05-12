@@ -10,14 +10,16 @@ module.exports = function (app, io) {
   });
   //POST OF OUTPUT SENSORS, INVOKE SOCKET TO UPDATE FRON-END
   app.post("/greenlight/:status", function(req, res){
+    console.log('posted greenLight status: ' + req.params.status)
     io.emit('greenLight', req.params.status);
     res.send("OK");
   });
   app.post("/flooropened/:status", function(req, res){
+    console.log('posted floorOpened: ' + req.params.status);
     io.emit('floorOpened', req.params.status);
     res.send("OK");
   });
-  /* serves main page */
+  /* serves Sensors Manager */
   app.get("/", function(req, res) {
      res.sendfile('index.html')
   });
