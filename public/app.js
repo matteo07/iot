@@ -7,7 +7,7 @@ angular.module('app', ['ngRoute'])
         template: '<h2>Select action</h2>'
       }).when('/enter', {
         template: '<enter></enter>'
-      }).when('/exit', {
+      }).when('/exit/:floor', {
         template: '<exit></exit>'
       }).when('/output', {
         template: '<output></output>'
@@ -27,10 +27,11 @@ angular.module('app', ['ngRoute'])
   //EXIT COMPONENT
   .component('exit',{
     templateUrl: 'public/exit.html',
-    controller: function($scope, $http){
+    controller: function($scope, $http, $routeParams){
       $scope.inputNumber = 1;
+      $scope.floor = $routeParams.floor;
       $scope.exit = function() {
-        $http.post("exit/" + $scope.inputNumber);
+        $http.post("exit/" + $scope.floor + "/" + $scope.inputNumber);
       }
     }
   })
