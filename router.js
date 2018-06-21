@@ -3,14 +3,21 @@ module.exports = function (app, io, mqttClient) {
   var floor = 0;
   //POST CAR ENTRY OR EXIT
   app.post("/entry/:number", function(req, res) {
-    console.log("car entering: " + req.params.number);
+    console.log("n cars entering: " + req.params.number);
+    console.log("greenLight: " + greenLight);
+
+    function simulalteEnter(i) {
+      if(greenLight == "true"){
+        mqttClient.publish('input/enter/park', 'entered car');
+        console.log("entering in floor: " + floor);
+        mqttClient.publish('input/enter/floor', floor + "");
+      } else {
+        console.log("Parking full")
+      }
+    }
 
     for (let i = 0; i < req.params.number; i++){
-      mqttClient.publish('input/enter/park', 'entered car');
-      setTimeout(function() {
-          console.log("entering in floor: " + floor);
-          mqttClient.publish('input/enter/floor', floor + "");
-      }, 2000);
+      setTimeout(simulalteEnter, 300 * (i + 1));
     }
 
     res.send(req.params.number);

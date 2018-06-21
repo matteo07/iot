@@ -7,10 +7,10 @@ angular.module('app', ['ngRoute'])
         template: '<h2>Select action</h2>'
       }).when('/enter', {
         template: '<enter></enter>'
+      //}).when('/output', {
+      //  template: '<output></output>'
       }).when('/exit/:floor', {
         template: '<exit></exit>'
-      }).when('/output', {
-        template: '<output></output>'
       }).otherwise('/');
     }
   ])
