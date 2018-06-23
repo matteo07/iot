@@ -24,9 +24,15 @@ module.exports = function (app, io, mqttClient) {
   });
   app.post("/exit/:park/:number", function(req, res) {
     console.log("car exiting from floor " + req.params.park + ": " + req.params.number);
-    for (let i = 0; i < req.params.number; i++){
+
+    function simulateExit(){
       mqttClient.publish('input/exit', req.params.park);
     }
+
+    for (let i = 0; i < req.params.number; i++){
+      setTimeout(simulateExit, 300 * (i + 1));
+    }
+    
     res.send(req.params.number);
   });
   //POST OF OUTPUT SENSORS, INVOKE SOCKET TO UPDATE FRON-END
